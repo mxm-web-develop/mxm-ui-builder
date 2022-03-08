@@ -183,9 +183,6 @@ const searchHash = () => {
   </div>
 </template>
 <style>
-body {
-  padding: 0 !important;
-}
 html,
 input,
 button {
