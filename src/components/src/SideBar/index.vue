@@ -13,10 +13,10 @@
       v-for="(menu, i) in menuList"
       :key="i"
       :class="{
-        'bg-mGray5 ': currentRoute === i,
+        'bg-mGray5 ': current === i,
         '!mt-20': i === 0,
       }"
-      @click="selectPage && selectPage(i)"
+      @click="selectCurrent && selectCurrent(i)"
     >
       <div class="box-content" style="padding: 14px 0 5px 0;">
         <i class="iconfont text-sm" v-html="menu.icon"></i>
@@ -27,7 +27,7 @@
       <div
         class="hidden absolute top-0 left-0 h-full bg-mBlue"
         :class="{
-          '!block': currentRoute === i,
+          '!block': current === i,
         }"
         style="width: 3px;"
       ></div>
@@ -38,8 +38,8 @@
 import { onBeforeMount } from "vue";
 
 interface Props {
-  currentRoute?: number;
-  selectPage?: (i: number) => void;
+  current?: number;
+  selectCurrent?: (i: number) => void;
   menuList?: {
     name: string;
     icon: string;

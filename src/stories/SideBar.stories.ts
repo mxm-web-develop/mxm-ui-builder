@@ -4,6 +4,12 @@ import SideBar from "../components/src/SideBar";
 export default {
   title: "SideBar",
   component: SideBar,
+  args: {
+    sideBarWidth: 64,
+    selectCurrent(i: number) {
+      console.log(i, "show i");
+    },
+  },
 };
 
 const Template: Story = (args) => ({
@@ -35,10 +41,7 @@ Primary.args = {
       icon: "&#xe62a;",
     },
   ],
-  currentRoute: 0,
+  current: 0,
   iconfontLink: "//at.alicdn.com/t/font_1321935_cdom05madx.css",
-  selectPage(v: number) {
-    console.log(v, "show v");
-  },
   sideBarWidth: 64,
 };
