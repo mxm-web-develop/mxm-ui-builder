@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, ref, computed, onBeforeMount } from "vue";
-
 import bannerImage from "@/assets/images/Home/banner.png";
 import qrCode from "@/assets/images/Home/qr.png";
 
@@ -10,7 +9,7 @@ import EntIndependentDeployment from "./components/EntIndependentDeployment.vue"
 import ApplicableIndustries from "./components/ApplicableIndustries.vue";
 import FreeTrialLinkCheck from "./components/FreeTrialLinkCheck.vue";
 import Footer from "./components/FooterInfo.vue";
-import { iFeaturesContent } from "./types";
+import { iFeaturesContent } from "./@types";
 
 onBeforeMount(() => {
   const mustNeedLinks = ["//at.alicdn.com/t/font_1321935_cdom05madx.css"];
