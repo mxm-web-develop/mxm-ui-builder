@@ -5,6 +5,7 @@ module.exports = {
       spacing: {
         pcWidth: "1200px",
         12.5: "50px",
+        15: "60px",
         25: "100px",
         26.5: "106px",
         49: "196px",
@@ -58,7 +59,10 @@ module.exports = {
         mGray2: "rgba(74, 74, 74, 1)",
         mGray3: "rgba(162, 157, 202, 1)",
         mGray4: "rgba(53, 53, 53, 1)",
+        mGray5: "#39393e",
+        mBlack: "#27272a",
         mLightBlue: "rgba(21, 203, 186, 1)",
+        mBlue: "#3f79fe",
       },
       fontFamily: {
         PingFangSC: ["PingFangSC-Regular"],
