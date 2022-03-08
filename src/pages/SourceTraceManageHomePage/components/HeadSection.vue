@@ -150,7 +150,7 @@
 <script lang="ts" setup>
 import features from "@/assets/images/Home/features.png";
 
-import { iFeaturesContent } from "../types";
+import { iFeaturesContent } from "../@types";
 
 defineProps<{
   sectionTitle: string;

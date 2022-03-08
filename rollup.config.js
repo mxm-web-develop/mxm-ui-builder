@@ -6,16 +6,15 @@ import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
 import postcssImport from "postcss-import";
 import tailwindcss from "tailwindcss";
+import image from '@rollup/plugin-image';
 import generatePackageJson from "rollup-plugin-generate-package-json";
 import { resolve } from "path";
 function createEntry(options) {
   const config = {
-    input: ["./src/components/index.ts"],
+    input: ["./src/pages/index.ts"],
     external: ["vue"],
     output: {
       file: resolve(__dirname, options.file),
-      name: options.name,
-      exports: "named",
       format: options.format,
       globals: {
         vue: "Vue",
@@ -32,6 +31,7 @@ function createEntry(options) {
           exclude: ["node_modules", "src/stories", "src/pages", "src/main.ts"],
         },
       }),
+      image(),
       vue(),
       postcss({
         extensions: [".css"],
@@ -44,9 +44,9 @@ function createEntry(options) {
           name: pkg.name + "-lib",
           version: pkg.version,
           license: pkg.license,
-          module: "index.esm.js",
+          // module: "index.esm.js",
           main: "index.js",
-          umd: "index.js",
+          // umd: "index.js",
           typings: "components/index.d.ts",
           author: "mxm",
         }),
@@ -59,5 +59,5 @@ function createEntry(options) {
 
 export default [
   createEntry({ file: pkg.module, format: "es", name: pkg.name }),
-  createEntry({ file: pkg.umd, format: "umd", name: pkg.name }),
+  // createEntry({ file: pkg.umd, format: "umd", name: pkg.name }),
 ];
