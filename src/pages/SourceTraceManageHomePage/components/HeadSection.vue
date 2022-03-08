@@ -40,12 +40,12 @@
           <span
             class="block text-white pt-20 text-3xl h-10 box-content"
             style="line-height: normal;"
-            >33复杂美</span
+            >{{ sectionTitle }}</span
           >
           <span
             class="block text-white opacity-30"
             style="margin-top: 15px; font-size: 32px; line-height: normal;"
-            >核心技术CHAIN33区块链底层开源，构建数字一体化生态体系</span
+            >{{ sectionDesc }}</span
           >
           <div
             class="bg-search h-10 bg-white box-content rounded-20 flex items-center"
@@ -83,61 +83,24 @@
     <!-- 优势 -->
     <section class="w-pcWidth h-125 mx-auto flex justify-between items-center">
       <div
-        class="text-center shrink-0 hover:transform hover:scale-110 transition-all duration-200 ease-linear"
+        v-for="(card, i) in advantagesCardList"
+        :key="i"
+        class="shrink-0 text-center hover:transform hover:scale-110 transition-all duration-200 ease-linear cursor-pointer"
         style="width: 350px; height: 350px; background-size: 100% 100%;"
         :style="{
-          backgroundImage: `url(${advantage1})`,
+          backgroundImage: `url(${card.icon})`,
         }"
       >
         <span
           class="inline-block mt-40 text-xl font-PingFangSC font-medium text-black leading-7"
-          >领先级技术研发</span
+          >{{ card.title }}</span
         >
         <br />
         <span
           class="block mx-auto my-2.5 text-sm opacity-60 font-PingFangSC text-mGray2"
           style="width: 66%; line-height: 30px;"
         >
-          已累计申请近 200项区块链发明专利，与阿里、腾讯同列全球专利数排名前
-          10。
-        </span>
-      </div>
-      <div
-        class="shrink-0 text-center hover:transform hover:scale-110 transition-all duration-200 ease-linear"
-        style="width: 350px; height: 350px; background-size: 100% 100%;"
-        :style="{
-          backgroundImage: `url(${advantage2})`,
-        }"
-      >
-        <span
-          class="inline-block mt-40 text-xl font-PingFangSC font-medium text-black leading-7"
-          >专业化团队运营</span
-        >
-        <br />
-        <span
-          class="block mx-auto my-2.5 text-sm opacity-60 font-PingFangSC text-mGray2"
-          style="width: 66%; line-height: 30px;"
-          >作为专业的区块链解决方案服务商，引入不同国家的技术专家、电商创业者等行业精英。</span
-        >
-      </div>
-      <div
-        class="shrink-0 text-center hover:transform hover:scale-110 transition-all duration-200 ease-linear"
-        style="width: 350px; height: 350px; background-size: 100% 100%;"
-        :style="{
-          backgroundImage: `url(${advantage3})`,
-        }"
-      >
-        <span
-          class="inline-block mt-40 text-xl font-PingFangSC font-medium text-black leading-7"
-          >500强合作伙伴</span
-        >
-        <br />
-        <span
-          class="block mx-auto my-2.5 text-sm opacity-60 font-PingFangSC text-mGray2"
-          style="width: 66%; line-height: 30px;"
-        >
-          已为海航海平线、美的金融、电力巨头等多家世界 500
-          强企业正式上线区块链项目。
+          {{ card.desc }}
         </span>
       </div>
     </section>
@@ -185,15 +148,16 @@
   </section>
 </template>
 <script lang="ts" setup>
-import bannerImage from "@/assets/images/Home/banner.png";
-import loginlogo from "@/assets/images/Home/home_logo.png";
-import advantage1 from "@/assets/images/Home/advantage1.png";
-import advantage2 from "@/assets/images/Home/advantage2.png";
-import advantage3 from "@/assets/images/Home/advantage3.png";
 import features from "@/assets/images/Home/features.png";
+
 import { iFeaturesContent } from "../types";
 
 defineProps<{
+  sectionTitle: string;
+  sectionDesc: string;
+  bannerImage: string;
+  advantagesCardList: { icon: string; title: string; desc: string }[];
+  loginlogo: string;
   toLoginPanel: () => void;
   hashText: string;
   setHashText: (str: string) => void;

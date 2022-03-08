@@ -10,7 +10,7 @@
       style="height: 400px;"
     >
       <i
-        class="block text-center cursor-pointer text-3xl"
+        class="iconfont block text-center cursor-pointer !text-3xl"
         style="width: 54px; height: 37px; line-height: 37px;"
         :style="industryLeft.style"
         @click="nextIndustry(`right`)"
@@ -32,7 +32,7 @@
           :key="index"
         >
           <i
-            class="content-in-icon text-3xl block mt-10 mx-auto text-white text-center rounded-full"
+            class="iconfont content-in-icon text-3xl block mt-10 mx-auto text-white text-center rounded-full"
             style="
               width: 82px;
               height: 82px;
@@ -47,7 +47,7 @@
         </div>
       </div>
       <i
-        class="block text-center cursor-pointer text-3xl"
+        class="iconfont block text-center cursor-pointer !text-3xl"
         style="width: 54px; height: 37px; line-height: 37px;"
         :style="industryRight.style"
         @click="nextIndustry(`left`)"

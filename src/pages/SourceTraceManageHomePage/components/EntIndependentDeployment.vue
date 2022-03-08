@@ -1,11 +1,10 @@
 <template>
   <section
     class="home-3 w-full bg-no-repeat"
-    style="
-      height: 640px;
-      background-image: url('@/assets/images/Home/home3.png');
-      background-position: right center;
-    "
+    style="height: 640px; background-position: right center;"
+    :style="{
+      backgroundImage: `url(${i})`,
+    }"
   >
     <span
       class="block w-full text-center text-3xl font-PingFangSC font-light text-mGray4"
@@ -55,25 +54,13 @@
       <img
         class="ml-5"
         style="width: 680px; height: 380px;"
-        v-show="currentDeploy === 0"
-        src="../../../assets/images/Home/home3_baner3.png"
-      />
-      <img
-        class="ml-5"
-        style="width: 680px; height: 380px;"
-        v-show="currentDeploy === 1"
-        src="../../../assets/images/Home/home3_baner1.png"
-      />
-      <img
-        class="ml-5"
-        style="width: 680px; height: 380px;"
-        v-show="currentDeploy === 2"
-        src="../../../assets/images/Home/home3_baner2.png"
+        :src="deploys[currentDeploy].image"
       />
     </div>
   </section>
 </template>
 <script lang="ts" setup>
+import i from "@/assets/images/Home/home3.png";
 defineProps<{
   currentDeploy: number;
   setCurrentDeploy: (c: number) => void;
