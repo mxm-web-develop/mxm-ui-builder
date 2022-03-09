@@ -132,7 +132,7 @@ const industrys = [
 export default {
   title: "Pages/SourceTraceManageHomePage",
   component: SourceTraceManageHomePage,
-  argTypes: { onClick: { action: "clicked" } },
+  argTypes: {},
 };
 
 const Template = (args) => ({
