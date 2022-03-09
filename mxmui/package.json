@@ -1,0 +1,11 @@
+{
+  "name": "mxmui-lib",
+  "version": "1.0.3",
+  "license": "MIT",
+  "main": "index.js",
+  "typings": "src/pages/index.d.ts",
+  "author": "mxm",
+  "dependencies": {
+    "vue": "^3.2.16"
+  }
+}

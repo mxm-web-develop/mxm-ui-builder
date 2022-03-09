@@ -5,7 +5,7 @@
   "module": "mxmui/index.js",
   "main": "mxmui/index.js",
   "umd": "mxmui/index.umd.js",
-  "typings": "mxmui/components/index.d.ts",
+  "typings": "mxmui/pages/index.d.ts",
   "author": "mxm",
   "files": [
     "mxmui",

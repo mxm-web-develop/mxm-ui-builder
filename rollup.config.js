@@ -47,7 +47,7 @@ function createEntry(options) {
           // module: "index.esm.js",
           main: "index.js",
           // umd: "index.js",
-          typings: "components/index.d.ts",
+          typings: "src/pages/index.d.ts",
           author: "mxm",
         }),
       }),
