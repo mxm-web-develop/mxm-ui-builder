@@ -1,5 +1,5 @@
 {
-  "name": "mxmui",
+  "name": "mxmui-builder",
   "version": "1.0.3",
   "license": "MIT",
   "module": "mxmui/index.js",

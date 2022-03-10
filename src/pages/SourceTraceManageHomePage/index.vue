@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, computed, onBeforeMount } from "vue";
-import bannerImage from "@/assets/images/Home/banner.png";
-import qrCode from "@/assets/images/Home/qr.png";
+import bannerImage from "../../assets/images/Home/banner.png";
+import qrCode from "../../assets/images/Home/qr.png";
 
 import HeadSection from "./components/HeadSection.vue";
 import OurAdvantage from "./components/OurAdvantage.vue";
@@ -11,20 +11,20 @@ import FreeTrialLinkCheck from "./components/FreeTrialLinkCheck.vue";
 import Footer from "./components/FooterInfo.vue";
 import { iFeaturesContent } from "./@types";
 
-import p1 from "@/assets/images/Home/advantage1_szhfwcz.png";
-import p2 from "@/assets/images/Home/advantage2_qzqsjjk.png";
-import p3 from "@/assets/images/Home/advantage3_djdsycz.png";
-import p4 from "@/assets/images/Home/advantage4_zdyslmb.png";
-import p5 from "@/assets/images/Home/advantage5_dcbgxlz.png";
-import p6 from "@/assets/images/Home/advantage6_ganfhtx.png";
-import loginlogo from "@/assets/images/Home/home_logo.png";
-import bannerPhoneImage from "@/assets/images/Home/banner-phone.png";
-import advantage1 from "@/assets/images/Home/advantage1.png";
-import advantage2 from "@/assets/images/Home/advantage2.png";
-import advantage3 from "@/assets/images/Home/advantage3.png";
-import home3_baner3 from "@/assets/images/Home/home3_baner3.png";
-import home3_baner1 from "@/assets/images/Home/home3_baner1.png";
-import home3_baner2 from "@/assets/images/Home/home3_baner2.png";
+import p1 from "../../assets/images/Home/advantage1_szhfwcz.png";
+import p2 from "../../assets/images/Home/advantage2_qzqsjjk.png";
+import p3 from "../../assets/images/Home/advantage3_djdsycz.png";
+import p4 from "../../assets/images/Home/advantage4_zdyslmb.png";
+import p5 from "../../assets/images/Home/advantage5_dcbgxlz.png";
+import p6 from "../../assets/images/Home/advantage6_ganfhtx.png";
+import loginlogo from "../../assets/images/Home/home_logo.png";
+import bannerPhoneImage from "../../assets/images/Home/banner-phone.png";
+import advantage1 from "../../assets/images/Home/advantage1.png";
+import advantage2 from "../../assets/images/Home/advantage2.png";
+import advantage3 from "../../assets/images/Home/advantage3.png";
+import home3_baner3 from "../../assets/images/Home/home3_baner3.png";
+import home3_baner1 from "../../assets/images/Home/home3_baner1.png";
+import home3_baner2 from "../../assets/images/Home/home3_baner2.png";
 
 onBeforeMount(() => {
   const mustNeedLinks = ["//at.alicdn.com/t/font_1321935_cdom05madx.css"];
@@ -313,7 +313,10 @@ const searchHash = () => {
     ></Footer>
   </div>
 </template>
-<style>
+<style scpoed>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html,
 input,
 button {
@@ -321,3 +324,5 @@ button {
     "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 </style>
+
+

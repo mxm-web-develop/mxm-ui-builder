@@ -26,19 +26,17 @@ import { create } from "@storybook/theming";
 // brandImage?: string;
 // gridCellSize?: number;
 export default create({
-  base: "light",
-  brandTitle: "MxM Web Components",
+  base: "dark",
+  brandTitle: "MxM UI Builder",
   brandUrl: "http://www.baidu.com",
   brandImage:"https://cdn.jsdelivr.net/gh/mxm-web-develop/mxm_materials@main/mxm_logo_black.png",
-
   //   colorPrimary: 'hotpink',
   //   colorSecondary: 'deepskyblue',
-
   //   // UI
-  appBg: "#F2F7F2",
-  appContentBg: "#FFFFFF",
-  appBorderColor: "#090C08",
-  appBorderRadius: 5,
+  // appBg: "#F2F7F2",
+  // appContentBg: "#FFFFFF",
+  // appBorderColor: "#090C08",
+  // appBorderRadius: 5,
 
   //   // Typography
   //   fontBase: '"Open Sans", sans-serif',
