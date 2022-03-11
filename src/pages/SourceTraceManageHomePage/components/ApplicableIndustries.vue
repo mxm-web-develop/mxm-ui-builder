@@ -2,23 +2,23 @@
   <section class="home-4 w-full">
     <span
       class="block w-full text-center text-3xl font-PingFangSC font-light text-mGray4"
-      style="height: 42px; line-height: 42px;"
+      style="height: 42px; line-height: 42px"
       >适用行业</span
     >
     <div
       class="home-4-in w-pcWidth mx-auto flex justify-between items-center"
-      style="height: 400px;"
+      style="height: 400px"
     >
       <i
         class="iconfont block text-center cursor-pointer !text-3xl"
-        style="width: 54px; height: 37px; line-height: 37px;"
+        style="width: 54px; height: 37px; line-height: 37px"
         :style="industryLeft.style"
         @click="nextIndustry(`right`)"
         v-html="industryLeft.icon"
       />
       <div
         class="content flex flex-nowrap overflow-hidden"
-        style="width: 976px; height: 300px;"
+        style="width: 976px; height: 300px"
       >
         <div
           :style="industryStyle.style"
@@ -48,7 +48,7 @@
       </div>
       <i
         class="iconfont block text-center cursor-pointer !text-3xl"
-        style="width: 54px; height: 37px; line-height: 37px;"
+        style="width: 54px; height: 37px; line-height: 37px"
         :style="industryRight.style"
         @click="nextIndustry(`left`)"
         v-html="industryRight.icon"

@@ -6,7 +6,7 @@ import postcss from "rollup-plugin-postcss";
 import { terser } from "rollup-plugin-terser";
 import postcssImport from "postcss-import";
 import tailwindcss from "tailwindcss";
-import image from '@rollup/plugin-image';
+import image from "@rollup/plugin-image";
 import generatePackageJson from "rollup-plugin-generate-package-json";
 import { resolve } from "path";
 function createEntry(options) {
@@ -28,19 +28,24 @@ function createEntry(options) {
             declaration: options.format === "es",
           },
           // include: ["src/components/**/*.vue"],
-          exclude: ["node_modules", "src/stories","src/components","src/main.ts"],
+          exclude: [
+            "node_modules",
+            "src/stories",
+            "src/components",
+            "src/main.ts",
+          ],
         },
       }),
 
       image(),
       vue(),
       postcss({
-          config:{
-            path:'./postcss.config.js'
-          },
-          extensions: [".css"],
-          extract: resolve("mxmui/style.css"),
-          plugins: [postcssImport(), tailwindcss('./tailwind.config.js')],
+        config: {
+          path: "./postcss.config.js",
+        },
+        extensions: [".css"],
+        extract: resolve("mxmui/style.css"),
+        plugins: [postcssImport(), tailwindcss("./tailwind.config.js")],
       }),
       generatePackageJson({
         outputFolder: "mxmui",

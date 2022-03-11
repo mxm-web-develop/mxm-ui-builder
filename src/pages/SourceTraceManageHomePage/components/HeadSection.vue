@@ -12,7 +12,7 @@
       <header
         class="w-full h-12.5 py-2.5 flex justify-between items-center box-content"
       >
-        <img class="ml-50" style="width: 101px;" :src="loginlogo" />
+        <img class="ml-50" style="width: 101px" :src="loginlogo" />
         <div class="flex text-center mr-50 leading-9 py-2.5">
           <span
             class="cursor-pointer text-white mr-10 text-sm leading-9"
@@ -21,7 +21,7 @@
           >
           <span
             class="text-sm cursor-pointer text-center bg-white shadow-1 rounded-36 text-mPurple h-9 leading-9"
-            style="width: 106px;"
+            style="width: 106px"
             @click="toLoginPanel()"
             >免费试用</span
           >
@@ -39,29 +39,29 @@
         >
           <span
             class="block text-white pt-20 text-3xl h-10 box-content"
-            style="line-height: normal;"
+            style="line-height: normal"
             >{{ sectionTitle }}</span
           >
           <span
             class="block text-white opacity-30"
-            style="margin-top: 15px; font-size: 32px; line-height: normal;"
+            style="margin-top: 15px; font-size: 32px; line-height: normal"
             >{{ sectionDesc }}</span
           >
           <div
             class="bg-search h-10 bg-white box-content rounded-20 flex items-center"
-            style="width: 390px; margin-top: 55px; padding: 0 6px 0 20px;"
+            style="width: 390px; margin-top: 55px; padding: 0 6px 0 20px"
           >
             <input
               :value="hashText"
               @input="(e) => setHashText((e.target as HTMLInputElement).value)"
               class="focus:border-0 focus:outline-none placeholder:text-mGray w-75 h-7 text-sm leading-8 bg-white border-0 border-r-0 align-middle"
-              style="color: #797d84;"
+              style="color: #797d84"
               type="text"
               placeholder="请输入溯源码"
             />
             <span
               class="cursor-pointer h-8 ml-2.5 bg-mLightBlue text-center font-PingFangSC font-normal text-white leading-8 text-sm"
-              style="width: 102px; border-radius: 20px;"
+              style="width: 102px; border-radius: 20px"
               @click="searchHash()"
               >点击搜索</span
             >
@@ -86,7 +86,7 @@
         v-for="(card, i) in advantagesCardList"
         :key="i"
         class="shrink-0 text-center hover:transform hover:scale-110 transition-all duration-200 ease-linear cursor-pointer"
-        style="width: 350px; height: 350px; background-size: 100% 100%;"
+        style="width: 350px; height: 350px; background-size: 100% 100%"
         :style="{
           backgroundImage: `url(${card.icon})`,
         }"
@@ -98,7 +98,7 @@
         <br />
         <span
           class="block mx-auto my-2.5 text-sm opacity-60 font-PingFangSC text-mGray2"
-          style="width: 66%; line-height: 30px;"
+          style="width: 66%; line-height: 30px"
         >
           {{ card.desc }}
         </span>
@@ -107,7 +107,7 @@
     <!-- 功能展示 -->
     <section
       class="features w-pcWidth h-60 mx-auto flex justify-between items-center rounded-20 bg-linearGradient2"
-      style="border: 1px solid rgba(151, 151, 151, 1);"
+      style="border: 1px solid rgba(151, 151, 151, 1)"
     >
       <div
         class="w-74 h-49 ml-25 bg-linearGradient3 bg-100%"
@@ -133,12 +133,12 @@
           >
             <i
               class="features-content-in-icon iconfont h-7 text-xl ml-5 mb-3"
-              style="width: 34px; color: #14cbba;"
+              style="width: 34px; color: #14cbba"
               >&#xe628;</i
             >
             <span
               class="features-content-in-text w-28 text-base ml-2.5 font-PingFangSC font-normal text-mGray3"
-              style="height: 22px; line-height: 22px;"
+              style="height: 22px; line-height: 22px"
               >{{ item.text }}</span
             >
           </div>

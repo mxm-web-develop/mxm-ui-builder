@@ -1,8 +1,8 @@
 import { Story } from "@storybook/vue3";
-import MxmCard from "../components/src/MxmCard";
+import MxmCard from "../../components/src/MxmCard";
 
 export default {
-  title: "Example/Card",
+  title: "Example/suyuan/Card",
   component: MxmCard,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   // argTypes: {

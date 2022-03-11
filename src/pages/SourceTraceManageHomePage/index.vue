@@ -175,20 +175,17 @@ const props = withDefaults(defineProps<Props>(), {
   advantagesCardList: () => [
     {
       title: "领先级技术研发",
-      desc:
-        "已累计申请近 200项区块链发明专利，与阿里、腾讯同列全球专利数排名前10。",
+      desc: "已累计申请近 200项区块链发明专利，与阿里、腾讯同列全球专利数排名前10。",
       icon: advantage1,
     },
     {
       title: "专业化团队运营",
-      desc:
-        "作为专业的区块链解决方案服务商，引入不同国家的技术专家、电商创业者等行业精英。",
+      desc: "作为专业的区块链解决方案服务商，引入不同国家的技术专家、电商创业者等行业精英。",
       icon: advantage2,
     },
     {
       title: "500强合作伙伴",
-      desc:
-        "已为海航海平线、美的金融、电力巨头等多家世界 500强企业正式上线区块链项目。",
+      desc: "已为海航海平线、美的金融、电力巨头等多家世界 500强企业正式上线区块链项目。",
       icon: advantage3,
     },
   ],
@@ -324,5 +321,3 @@ button {
     "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 </style>
-
-

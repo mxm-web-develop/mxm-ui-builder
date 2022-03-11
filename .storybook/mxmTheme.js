@@ -29,7 +29,8 @@ export default create({
   base: "dark",
   brandTitle: "MxM UI Builder",
   brandUrl: "http://www.baidu.com",
-  brandImage:"https://cdn.jsdelivr.net/gh/mxm-web-develop/mxm_materials@main/mxm_logo_black.png",
+  brandImage:
+    "https://cdn.jsdelivr.net/gh/mxm-web-develop/mxm_materials@main/rylogo.png",
   //   colorPrimary: 'hotpink',
   //   colorSecondary: 'deepskyblue',
   //   // UI
@@ -43,18 +44,18 @@ export default create({
   //   fontCode: 'monospace',
 
   //   // Text colors
-  textColor: "#090C08",
-  textInverseColor: "#586F7C",
+  // textColor: "#090C08",
+  // textInverseColor: "#586F7C",
 
   //   // Toolbar default and active colors
   //   barTextColor: 'silver',
-  barSelectedColor: "#E89005",
-  barBg: "#E6EFE6",
+  // barSelectedColor: "#E89005",
+  // barBg: "#E6EFE6",
 
   //   // Form colors
-  inputBg: "#E6EFE6",
-  inputBorder: "#2E3D29",
-  inputTextColor: "#090C08",
+  // inputBg: "#E6EFE6",
+  // inputBorder: "#2E3D29",
+  // inputTextColor: "#090C08",
   inputBorderRadius: 5,
 
   //   brandTitle: 'My custom storybook',

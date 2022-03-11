@@ -2,14 +2,14 @@
   <!-- 左侧导航栏 -->
   <nav
     class="h-full bg-mBlack text-center text-xs flow-root"
-    style="color: rgba(255, 255, 255, 0.6);"
+    style="color: rgba(255, 255, 255, 0.6)"
     :style="{
       width: sideBarWidth + 'px',
     }"
   >
     <div
       class="h-15 relative cursor-pointer"
-      style="margin-top: 21px;"
+      style="margin-top: 21px"
       v-for="(menu, i) in menuList"
       :key="i"
       :class="{
@@ -18,10 +18,10 @@
       }"
       @click="selectCurrent && selectCurrent(i)"
     >
-      <div class="box-content" style="padding: 14px 0 5px 0;">
+      <div class="box-content" style="padding: 14px 0 5px 0">
         <i class="iconfont text-sm" v-html="menu.icon"></i>
       </div>
-      <div style="line-height: 17px;">
+      <div style="line-height: 17px">
         {{ menu.name }}
       </div>
       <div
@@ -29,7 +29,7 @@
         :class="{
           '!block': current === i,
         }"
-        style="width: 3px;"
+        style="width: 3px"
       ></div>
     </div>
   </nav>

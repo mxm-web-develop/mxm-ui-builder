@@ -1,19 +1,19 @@
 <template>
   <section
     class="home-3 w-full bg-no-repeat"
-    style="height: 640px; background-position: right center;"
+    style="height: 640px; background-position: right center"
     :style="{
       backgroundImage: `url(${i})`,
     }"
   >
     <span
       class="block w-full text-center text-3xl font-PingFangSC font-light text-mGray4"
-      style="height: 42px; line-height: 42px;"
+      style="height: 42px; line-height: 42px"
       >企业独立部署</span
     >
     <div
       class="home-3-in w-pcWidth flex justify-between"
-      style="margin: 75px auto;"
+      style="margin: 75px auto"
     >
       <div class="home-3-in-left transition-all duration-200 ease-linear">
         <div
@@ -36,7 +36,7 @@
         >
           <span
             class="content-title block text-xl font-PingFangSC font-medium leading-7"
-            style="width: 224px; height: 23px;"
+            style="width: 224px; height: 23px"
             >{{ item.title }}</span
           >
           <span
@@ -53,7 +53,7 @@
       </div>
       <img
         class="ml-5"
-        style="width: 680px; height: 380px;"
+        style="width: 680px; height: 380px"
         :src="deploys[currentDeploy].image"
       />
     </div>

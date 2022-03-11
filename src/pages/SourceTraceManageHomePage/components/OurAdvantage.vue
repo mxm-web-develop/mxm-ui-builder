@@ -3,23 +3,23 @@
   <section class="w-full -mt-20">
     <img
       class="block mx-auto"
-      style="width: 50px; height: 50px; transform: translateY(144px);"
+      style="width: 50px; height: 50px; transform: translateY(144px)"
       src="@/assets/images/Home/home-2-icon.png"
     />
     <span
       class="block w-full text-center text-3xl font-PingFangSC font-light text-mGray4"
-      style="height: 42px; line-height: 42px;"
+      style="height: 42px; line-height: 42px"
       >我们的优势</span
     >
     <div
       class="mt-2.5 w-full bg-100%"
-      style="height: 684px;"
+      style="height: 684px"
       :style="{ backgroundImage: `url(${home2})` }"
     >
       <div class="w-pcWidth mx-auto flex justify-between flex-wrap">
         <div
           class="box-content"
-          style="width: 28%; margin-top: 150px;"
+          style="width: 28%; margin-top: 150px"
           v-for="(item, index) in ourAdvantages"
           :style="[index >= 3 ? 'margin-top: 50px;' : '']"
           :key="index"
@@ -42,7 +42,7 @@
           >
           <span
             class="block text-xs font-PingFangSC font-normal text-mGray3"
-            style="width: 290px; height: 51px; line-height: 17px;"
+            style="width: 290px; height: 51px; line-height: 17px"
             >{{ item.text }}</span
           >
         </div>

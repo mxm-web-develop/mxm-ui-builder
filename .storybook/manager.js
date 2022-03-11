@@ -9,7 +9,7 @@ addons.setConfig({
   panelPosition: "right",
   enableShortcuts: true,
   isToolshown: true,
-  theme: themes.normal,
+  theme: mxmTheme,
   selectedPanel: undefined,
   initialActive: "sidebar",
   sidebar: {
