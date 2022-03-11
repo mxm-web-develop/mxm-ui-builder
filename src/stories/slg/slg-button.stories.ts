@@ -5,6 +5,7 @@ export default {
   title: "slg/Button",
   component: SlgButton,
   argTypes: {
+    mode:{ control:'select',options:['filled','border'],default:'border'},
     disabled: { control: "boolean", description: "禁用" },
     rounded:{ control:'select',options:['round','none','full','large']}
   },
@@ -21,7 +22,7 @@ const Template: Story = (args) => ({
 });
 export const Primary = Template.bind({});
 Primary.args = {
-  label: "什么狗屁",
+  label: "查看更多",
   disabled: false,
   rounded:'none'
 };

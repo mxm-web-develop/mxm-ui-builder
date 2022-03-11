@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="inline-flex items-center px-10 py-1 shadow-sm text-sm font-medium  border-2 border-slg-green text-slg-dark bg-transparent"
+    class="inline-flex items-center px-10 py-1 shadow-sm text-sm font-medium   text-slg-dark bg-transparent"
     :class="classes"
     @click="onClick"
     :disabled="disabled"
@@ -21,12 +21,13 @@ const roundedStyle ={
   "full":"rounded-full"
 }
 const boxStyle = {
-  "filled":'',
-  "border":''
+  "filled":' border-none',
+  "border":' border-2 border-slg-green'
 }
 interface Props {
   label?: string;
   disabled?: boolean;
+  mode?:'filled'|"border"
   withIcon?: boolean;
   rounded?: 'round'|'none'|'full'|'large';
 }
@@ -34,11 +35,13 @@ const emit = defineEmits(["click"]);
 const onClick = () => emit("click");
 const props = withDefaults(defineProps<Props>(), {
   label: "查看更多",
+  mode:'border'
 });
 const classes = computed(() => {
   let twStyle: string[] = [];
   props.disabled ? twStyle.push("bg-slg-light-green") : "";
   props.rounded? twStyle.push(roundedStyle[props.rounded]):'';
+  props.mode? twStyle.push(boxStyle[props.mode]):'';
   return twStyle;
 });
 </script>
