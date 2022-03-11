@@ -7,22 +7,24 @@
     "strict": true,
     "strictBindCallApply": true,
     "importHelpers": true,
-    "jsx": "preserve",
+    // "jsx": "preserve",
     "moduleResolution": "node",
     "isolatedModules": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
+    "allowJs": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "baseUrl": "./",
     "types": ["vite/client", "@intlify/vite-plugin-vue-i18n/client"],
     "paths": {
       "@/*": ["src/*"],
-      "components/*": ["src/components/*"],
-      "widgets/*": ["src/widgets/*"],
-      "pages/*": ["src/pages/*"]
+      // "components/*": ["src/components/*"],
+      // "widgets/*": ["src/widgets/*"],
+      // "pages/*": ["src/pages/*"],
+      // "layouts/*": ["src/layouts/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

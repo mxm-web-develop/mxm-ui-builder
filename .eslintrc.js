@@ -5,6 +5,14 @@ module.exports = {
     es2021: true,
     "vue/setup-compiler-macros": true,
   },
+  settings: {
+    "import/resolver": {
+      alias: {
+        map: [["@", "./src"]],
+        extensions: [".ts", ".js", "vue"],
+      },
+    },
+  },
   extends: [
     "eslint:recommended",
     "@vue/prettier",

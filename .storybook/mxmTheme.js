@@ -26,7 +26,7 @@ import { create } from "@storybook/theming";
 // brandImage?: string;
 // gridCellSize?: number;
 export default create({
-  base: "dark",
+  base: "light",
   brandTitle: "MxM UI Builder",
   brandUrl: "http://www.baidu.com",
   brandImage:
@@ -34,8 +34,8 @@ export default create({
   //   colorPrimary: 'hotpink',
   //   colorSecondary: 'deepskyblue',
   //   // UI
-  // appBg: "#F2F7F2",
-  // appContentBg: "#FFFFFF",
+  //  appBg: "#FFFFFF",
+  //   appContentBg: "#FFFFFF",
   // appBorderColor: "#090C08",
   // appBorderRadius: 5,
 

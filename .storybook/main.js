@@ -27,7 +27,7 @@ module.exports = {
   typescript: {
     check: false,
     checkOptions: {},
-    reactDocgen: "react-docgen-typescript",
+    reactDocgen: false,
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
       propFilter: (prop) =>
@@ -37,7 +37,8 @@ module.exports = {
   async viteFinal(previousConfig) {
     const { config } = await loadConfigFromFile(
       path.resolve(__dirname, "../vite.config.ts")
-    )
+    );
+    // config.resolve.alias['@'] = path.resolve(__dirname, "../src/")
     return mergeConfig(previousConfig, {
       ...config,
       plugins: [

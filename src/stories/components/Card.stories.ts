@@ -1,8 +1,8 @@
 import { Story } from "@storybook/vue3";
-import MxmCard from "../../components/src/MxmCard";
-
+import MxmCard from "../../components/src/MxmCard/index.vue";
+import centerDisplay from "../../widgets/centerDisplay.vue";
 export default {
-  title: "Example/suyuan/Card",
+  title: "Basic/Components/Card",
   component: MxmCard,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   // argTypes: {
@@ -17,13 +17,16 @@ export default {
 
 const Template: Story = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { MxmCard },
+  components: { MxmCard, centerDisplay },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<mxm-card v-bind="args" />',
+  template: `
+    <center-display>
+      <mxm-card v-bind="args" />
+    </center-display>`,
 });
 
 export const Primary = Template.bind({});

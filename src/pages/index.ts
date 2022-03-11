@@ -1,13 +1,12 @@
-import TracePage from "./SourceTraceManageHomePage";
 import TestPage from "./TestPage";
 import { App } from "vue";
 import "./style.css";
-const components = [TracePage, TestPage];
+const components = [TestPage];
 
 const install = (app: App) => {
   components.map((component) => app.component(component.name, component));
 };
 
-export { TracePage, TestPage };
+export { TestPage };
 
 export default install;

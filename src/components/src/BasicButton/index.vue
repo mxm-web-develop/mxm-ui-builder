@@ -1,26 +1,51 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">
-    {{ label }}
+  <button
+    type="button"
+    class="py-1 px-4 min-w-btn hover:contrast-50"
+    :class="classes"
+    @click="onClick"
+    :style="style"
+  >
+    <div class="flex">
+      <div>{{ label }}</div>
+    </div>
   </button>
 </template>
 
 <script setup lang="ts">
-export type Size = "small" | "medium" | "large";
-
+export type Size = "small" | "medium" | "large" | "full";
 import { computed } from "vue";
-
+const borderStyle = {
+  text: "border-none",
+  filled: "border-none",
+  bordered: "border",
+};
+const roundedStyle = {
+  none: "rounded-none",
+  rounded: "rounded",
+  full: "rounded-full",
+};
 interface Props {
-  label: string;
+  label?: string;
   primary?: boolean;
+  icon?: string;
+  rounded?: "none" | "rounded" | "full";
+  mode?: "text" | "filled" | "bordered";
   backgroundColor?: string;
-  size: Size;
+  color?: string;
+  size?: Size;
 }
 
 interface Emits {
   (e: "click"): void;
 }
 
-const props = withDefaults(defineProps<Props>(), { primary: false });
+const props = withDefaults(defineProps<Props>(), {
+  label: "Button",
+  primary: false,
+  rounded: "rounded",
+  mode: "bordered",
+});
 
 const emit = defineEmits<Emits>();
 
@@ -28,15 +53,18 @@ const onClick = () => {
   emit("click");
 };
 
-const classes = computed(() => ({
-  "storybook-button": true,
-  "storybook-button--primary": props.primary,
-  "storybook-button--secondary": !props.primary,
-  [`storybook-button--${props.size || "medium"}`]: true,
-}));
+const classes = computed(() => {
+  let arr: string[] = [];
+  borderStyle[props.mode] ? arr.push(borderStyle[props.mode]) : "";
+  roundedStyle[props.rounded] ? arr.push(roundedStyle[props.rounded]) : "";
+  return arr;
+});
 
 const style = computed(() => ({
-  backgroundColor: props.backgroundColor,
+  backgroundColor:
+    props.mode === "filled" ? props.backgroundColor : "transparent",
+  color: props.color,
+  borderColor: props.backgroundColor,
 }));
 </script>
 
@@ -44,26 +72,4 @@ const style = computed(() => ({
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.storybook-button {
-  font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-}
-.storybook-button--small {
-  font-size: 12px;
-  padding: 10px 16px;
-}
-.storybook-button--medium {
-  font-size: 14px;
-  padding: 11px 20px;
-}
-.storybook-button--large {
-  font-size: 16px;
-  padding: 12px 24px;
-}
 </style>
