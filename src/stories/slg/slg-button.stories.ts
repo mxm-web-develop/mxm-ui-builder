@@ -1,11 +1,12 @@
 import { Story } from "@storybook/vue3";
-import SlgButton from "../../slg/Button";
+import SlgButton from "@/slg/Button";
 
 export default {
   title: "slg/Button",
   component: SlgButton,
   argTypes: {
     disabled: { control: "boolean", description: "禁用" },
+    rounded:{ control:'select',options:['round','none','full','large']}
   },
 };
 
@@ -20,6 +21,20 @@ const Template: Story = (args) => ({
 });
 export const Primary = Template.bind({});
 Primary.args = {
-  label: "查看",
+  label: "什么狗屁",
   disabled: false,
+  rounded:'none'
 };
+
+export const Secondary = Template.bind({})
+Secondary.args = {
+  label: "查看更多",
+  rounded:"rounded"
+}
+
+export const withIcon = Template.bind({})
+withIcon.args = {
+  label:'add to bag',
+  withIcon: true,
+  rounded:'none'
+}

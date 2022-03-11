@@ -1,6 +1,6 @@
 import { Story } from "@storybook/vue3";
 import BasicButton from "../../components/src/BasicButton";
-import centerDisplay from "../../widgets/centerDIsplay.vue";
+
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
   title: "Basic/Components/Button",
@@ -19,7 +19,7 @@ export default {
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template: Story = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { BasicButton, centerDisplay },
+  components: { BasicButton },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };

@@ -18,7 +18,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": resolve(__dirname, "src")
+      "@": resolve(__dirname, "src"),
       // fileURLToPath(new URL("./src", import.meta.url)),
       // "components": fileURLToPath(new URL("./src/components", import.meta.url)),
       // "widgets/*": fileURLToPath(new URL("./src/widgets", import.meta.url)),

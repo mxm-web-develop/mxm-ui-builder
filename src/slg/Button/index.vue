@@ -1,39 +1,46 @@
 <template>
   <button
     type="button"
-    class="inline-flex
-    items-center
-    px-10 py-2  
-    shadow-sm text-base
-    font-medium rounded-md
-    border-2
-    border-slg-green
-    text-slg-dark
-    bg-transparent
-    "
+    class="inline-flex items-center px-10 py-1 shadow-sm text-sm font-medium  border-2 border-slg-green text-slg-dark bg-transparent"
     :class="classes"
     @click="onClick"
+    :disabled="disabled"
   >
-    <ShoppingCartIcon class="-ml-1 mr-3 h-3 w-3" aria-hidden="true" />
-        {{lable}}
+    <ShoppingCartIcon v-if="withIcon" class="-ml-1 mr-3 h-3 w-3" aria-hidden="true" />
+    {{ label }}
   </button>
 </template>
 
 <script setup lang="ts">
 import { ShoppingCartIcon } from "@heroicons/vue/solid";
 import { computed } from "vue";
-interface Props {
-    lable:string,
-    disabled?:boolean
+const roundedStyle ={
+  'round':'rounded',
+  "large":"rounded-lg",
+  "none":"rounded-none",
+  "full":"rounded-full"
 }
-const emit = defineEmits(['click'])
-const onClick = ()=> emit('click')
-const props = withDefaults(defineProps<Props>(), {})
-const classes = computed(() =>{
-    let twStyle:string[] = [];
-    props.disabled?twStyle.push('bg-slg-light-green'):''
-    return twStyle
-})
+const boxStyle = {
+  "filled":'',
+  "border":''
+}
+interface Props {
+  label?: string;
+  disabled?: boolean;
+  withIcon?: boolean;
+  rounded?: 'round'|'none'|'full'|'large';
+}
+const emit = defineEmits(["click"]);
+const onClick = () => emit("click");
+const props = withDefaults(defineProps<Props>(), {
+  label: "查看更多",
+});
+const classes = computed(() => {
+  let twStyle: string[] = [];
+  props.disabled ? twStyle.push("bg-slg-light-green") : "";
+  props.rounded? twStyle.push(roundedStyle[props.rounded]):'';
+  return twStyle;
+});
 </script>
 
 <style scoped>
@@ -41,4 +48,3 @@ const classes = computed(() =>{
 @tailwind components;
 @tailwind utilities;
 </style>
-   

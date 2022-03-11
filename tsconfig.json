@@ -7,7 +7,7 @@
     "strict": true,
     "strictBindCallApply": true,
     "importHelpers": true,
-    // "jsx": "preserve",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "isolatedModules": true,
     "skipLibCheck": true,
@@ -20,7 +20,7 @@
     "baseUrl": "./",
     "types": ["vite/client", "@intlify/vite-plugin-vue-i18n/client"],
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["src/*"]
       // "components/*": ["src/components/*"],
       // "widgets/*": ["src/widgets/*"],
       // "pages/*": ["src/pages/*"],
@@ -29,5 +29,5 @@
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": ["vite.config.*", "src/**/*", "src/**/*.vue", "rollup.config.js"],
-  "exclude": ["node_modules", "**/*.stories.ts"]
+  "exclude": ["node_modules"]
 }
