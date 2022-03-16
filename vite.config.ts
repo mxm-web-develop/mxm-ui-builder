@@ -8,13 +8,15 @@ import eslintPlugin from "vite-plugin-eslint";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
+  optimizeDeps: {
+    include: ["qrcode-vue3"],
+  },
   plugins: [
     vue(),
     vueI18n({
       include: resolve(__dirname, "./src/locales/**"),
       runtimeOnly: false,
     }),
-    eslintPlugin(),
   ],
   resolve: {
     alias: {

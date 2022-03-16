@@ -1,37 +1,45 @@
 import { Story } from "@storybook/vue3";
-import BasicButton from "../../components/src/BasicButton";
+import SlgButton from "@/components/src/Button";
 
-// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: "Basic/Components/Button",
-  component: BasicButton,
-  // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
+  title: "common/components/Button",
+  component: SlgButton,
   argTypes: {
-    backgroundColor: { control: "color", description: "背景和边框颜色" },
-    color: { control: "color", description: "字体颜色" },
-    size: {
-      control: { type: "select" },
-      options: ["small", "medium", "large"],
+    mode: {
+      control: "select",
+      options: ["filled", "border"],
+      default: "border",
     },
+    disabled: { control: "boolean", description: "禁用" },
+    rounded: { control: "select", options: ["round", "none", "full", "large"] },
   },
 };
 
-// More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template: Story = (args) => ({
-  // Components used in your story `template` are defined in the `components` object
-  components: { BasicButton },
-  // The story's `args` need to be mapped into the template through the `setup()` method
+  components: { SlgButton },
   setup() {
     return { args };
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
   template: `
-      <basic-button v-bind="args" />
+      <slg-button v-bind="args" />
   `,
 });
-
 export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Primary.args = {
-  label: "Button",
+  label: "查看更多",
+  disabled: false,
+  rounded: "none",
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: "查看更多",
+  rounded: "rounded",
+};
+
+export const withIcon = Template.bind({});
+withIcon.args = {
+  label: "add to bag",
+  withIcon: true,
+  rounded: "none",
 };
