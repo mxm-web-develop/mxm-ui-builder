@@ -2,57 +2,77 @@
 // import { useI18n } from "vue-i18n";
 // import links from "@/data/links.json";
 // import slgNavbar from "@/slg/NavBar/index.vue";
-import slgButton from "@/slg/Button/index.vue";
+
 import slgBanner from "@/slg/Banner/index.vue";
 import slgShowCase from "@/slg/ShowCase/index.vue";
 import SlgFloatButton from "@/slg/FloatButton/index.vue";
 import slgSideController from "./slg/SideController";
+import slgRetailerCard from "@/slg/RetailerCard";
 import slgFooter from "./slg/Footer";
 import slgHeader from "./slg/Header";
+// import slgLogin from "@/slg/Login"
+import slgNavbar from '@/slg/NavBar'
+import MxmButton from "@/components/src/Button"
+import MxmInput from '@/components/src/Input'
+import MxmCodeInput from '@/components/src/VertifyInput'
+import MxmCheckbox from '@/components/src/CheckBox'
+import { reactive, ref } from "vue";
+
 const dosome = () => {
   console.log(1122232);
 };
-const footer = [
+const form = ref()
+const data = reactive({
+  inputV:'',
+  inputC:'',
+  checkbox:false,
+})
+const doSubmit = (e) => {
+  
+    const el = form.value as HTMLFormElement
+      console.log(data.inputV,data.inputC); 
+    e.preventDefault();
+}
+const tabs = [
   {
-    name: "探索更多",
-    links: [
-      { name: "数字藏品", url: "dkfjdkf" },
-      { name: "实物映射", url: "dkfjdkf" },
-      { name: "未来艺术家", url: "dkfjdkf" },
+    name: "My Account",
+    children: [
+      { name: "hahah", href: "#" },
+      { name: "hehe", href: "#" },
     ],
   },
+  { name: "Company", href: "#" },
   {
-    name: "关于我们",
-    links: [
-      { name: "上链购app", url: "dkfjdkf" },
-      { name: "链上溯源", url: "dkfjdkf" },
-    ],
+    name: "Team Members",
   },
-  {
-    name: "了解更多",
-    links: [
-      { name: "Chain33", url: "dkfjdkf" },
-      { name: "去中心化聊天", url: "dkfjdkf" },
-      { name: "DEX", url: "dkfjdkf" },
-    ],
-  },
+  { name: "Billing",     children: [
+      { name: "sdfsdf", href: "#" },
+      { name: "asdfasf", href: "#" },
+            { name: "asdfasf", href: "#" }
+    ] },
+  { name: "Trythat", href: "#" },
 ];
 </script>
 
 <template>
-  <div class="w-64 h-boxH">
-    <!-- <slg-banner></slg-banner> -->
+  <!-- <div class="w-64 h-boxH">
     <slg-show-case :buttonOnclick="dosome"></slg-show-case>
-    <!-- <slg-side-controller mode="user"></slg-side-controller> -->
-    <!-- <div class="w-64 h-96 bg-green-500 relative">
-      <div class="absolute right-5 top-5">
-        <SlgFloatButton></SlgFloatButton>
-      </div>
-    </div> -->
-    <!-- 宣传   -->
-  </div>
-  <slg-header></slg-header>
-  <slg-footer :listData="footer"></slg-footer>
+  </div> -->
+  <!-- <slg-header></slg-header>
+   <div class="w-96 h-64">
+       <slg-retailer-card></slg-retailer-card>
+   </div> -->
+   <!-- <div class="w-96 h-boxH">
+       <slg-login></slg-login>
+   </div> -->
+   <!-- <div class=" p-10">
+        <mxm-checkbox v-model="data.checkbox"></mxm-checkbox>
+   </div> -->
+   <div class=" w-screen h-64">
+     <slg-navbar :routes="tabs"></slg-navbar>
+   </div>
+
+
 </template>
 
 <style scoped>

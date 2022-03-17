@@ -1,8 +1,8 @@
-import SlgButton from "./index.vue";
+import MxmButton from "./index.vue";
 import { App } from "vue";
 
-SlgButton.install = (app: App) => {
-  app.component(SlgButton.name, SlgButton);
+MxmButton.install = (app: App) => {
+  app.component(MxmButton.name, MxmButton);
 };
 
-export default SlgButton;
+export default MxmButton;

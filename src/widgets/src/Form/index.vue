@@ -1,16 +1,15 @@
 <template>
   <button
     type="button"
-    class="inline-flex cursor-pointer items-center px-10 py-1 shadow-sm text-sm font-medium  justify-center"
+    class="inline-flex cursor-pointer items-center px-10 py-1 shadow-sm text-sm font-medium text-slg-dark justify-center"
     :class="[
       props.disabled ? 'bg-slg-light-green' : '',
       props.rounded ? roundedStyle[props.rounded] : '',
       props.mode === 'filled'
-        ? 'border-none'
+        ? 'border-none bg-transparent'
         : 'border border-slg-green',
-      ' '+ props.class? props.class:''
     ]"
-
+    :style="{color:props.color,backgroundColor:props.backgroundColor}"
     @click="props.btnClick"
     :disabled="disabled"
   >
@@ -38,9 +37,9 @@ const roundedStyle = {
 interface Props {
   label?: string;
   disabled?: boolean;
-  type?: 'text'|'submit'|'reset';
+  backgroundColor?: string;
+  color?: string;
   mode?: "filled" | "border";
-  class?:string;
   withIcon?: boolean;
   rounded?: "round" | "none" | "full" | "large";
   btnClick?: () => any;
@@ -49,8 +48,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   label: "查看更多",
   mode: "border",
-  type: 'text',
-  withIcon: false
 });
 </script>
 

@@ -91,24 +91,27 @@ import {
   ChevronUpIcon,
 } from "@heroicons/vue/solid";
 
-const people = [
-  { id: 1, name: "Wade Cooper" },
-  { id: 2, name: "Arlene Mccoy" },
-  { id: 3, name: "Devon Webb" },
-  { id: 4, name: "Tom Cook" },
-];
-
 // const props = defineProps<{}>()
 const emit = defineEmits(["valueChange"]);
 const data = reactive({
   opened: false,
 });
 
-const props = defineProps<{
-  listData: any[];
-}>();
+const props = withDefaults(
+  defineProps<{
+    listData: any[];
+  }>(),
+  {
+    listData: () => [
+      { id: 1, name: "Wade Cooper" },
+      { id: 2, name: "Arlene Mccoy" },
+      { id: 3, name: "Devon Webb" },
+      { id: 4, name: "Tom Cook" },
+    ],
+  }
+);
 const selected = ref(props.listData[0]);
-// const valueChanged =  emit('valueChange',selected)
+
 watch(selected, () => emit("valueChange", selected));
 </script>
 

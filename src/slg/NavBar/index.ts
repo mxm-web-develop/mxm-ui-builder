@@ -1,8 +1,8 @@
-import slgNav from "./index.vue";
+import slgNavbar from "./index.vue";
 import { App } from "vue";
 
-slgNav.install = (app: App) => {
-  app.component(slgNav.name, slgNav);
+slgNavbar.install = (app: App) => {
+  app.component(slgNavbar.name, slgNavbar);
 };
 
-export default slgNav;
+export default slgNavbar;

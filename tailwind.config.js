@@ -16,12 +16,14 @@ module.exports = {
         "slg-green": "#354E57",
         "slg-dark": "#2E2E22",
         "slg-red": "#DD2E41",
+        "slg-input-border":"#BACAD1",
         "slg-bright": "#FAFAFA",
         "slg-light-green": "#E4ECEF",
         "slg-light-gray": "#EEF2F4",
       },
       spacing: {
         boxH: "30rem",
+        "fix-min":"0.035rem"
       },
     },
   },

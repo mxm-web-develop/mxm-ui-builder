@@ -1,9 +1,9 @@
 import { Story } from "@storybook/vue3";
-import SlgButton from "@/components/src/Button";
+import MxmButton from "@/components/src/Button";
 
 export default {
   title: "common/components/Button",
-  component: SlgButton,
+  component: MxmButton,
   argTypes: {
     mode: {
       control: "select",
@@ -16,30 +16,17 @@ export default {
 };
 
 const Template: Story = (args) => ({
-  components: { SlgButton },
+  components: { MxmButton },
   setup() {
     return { args };
   },
   template: `
-      <slg-button v-bind="args" />
+      <mxm-button v-bind="args" />
   `,
 });
 export const Primary = Template.bind({});
 Primary.args = {
   label: "查看更多",
   disabled: false,
-  rounded: "none",
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: "查看更多",
-  rounded: "rounded",
-};
-
-export const withIcon = Template.bind({});
-withIcon.args = {
-  label: "add to bag",
-  withIcon: true,
   rounded: "none",
 };
