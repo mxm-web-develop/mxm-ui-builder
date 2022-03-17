@@ -27,6 +27,10 @@ const data = reactive({
   inputC:'',
   checkbox:false,
 })
+const test = (item)=>{
+  console.log(3333);
+}
+
 const doSubmit = (e) => {
   
     const el = form.value as HTMLFormElement
@@ -69,7 +73,7 @@ const tabs = [
         <mxm-checkbox v-model="data.checkbox"></mxm-checkbox>
    </div> -->
    <div class=" w-screen h-64">
-     <slg-navbar :routes="tabs"></slg-navbar>
+     <slg-navbar :routes="tabs" @activeChanged="test"></slg-navbar>
    </div>
 
 

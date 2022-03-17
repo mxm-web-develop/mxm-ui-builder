@@ -49,7 +49,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { debounce } from "ts-debounce"
-const emit = defineEmits(["activeChange"]);
+const emit = defineEmits(["activeChanged"]);
 const showChildren = ref(-1)
 interface ActiveItem {
     name: string;
@@ -93,7 +93,11 @@ const levelItem = debounce(()=>{
 const itemOnclick = (tab: any, index: number) => {
   if (currnetActive.value?.name !== tab.name) {
     currnetActive.value = {name:tab.name, index:index}
-    emit("activeChange", currnetActive.value);
+    if(!tab.children){
+        emit("activeChanged", currnetActive.value);
+    }else{
+        return
+    }
   }
   return;
 };
