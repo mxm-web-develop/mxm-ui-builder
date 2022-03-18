@@ -11,7 +11,8 @@ interface Emphasize {
   url?: string;
 }
 const emit = defineEmits(["update:modelValue"]);
-const props = withDefaults(defineProps<Props>(), {
+const props =withDefaults(defineProps<Props>(), {
+  modelValue:false,
   name: "checkbox_defaultName",
   text: "点击确认已阅读",
   emphasize: () => {
@@ -36,9 +37,9 @@ const checked = ref(false);
         aria-describedby="comments-description"
         :name="name"
         type="checkbox"
-        v-model="modelValue"
+        v-model="props.modelValue"
         class="focus:ring-slg-red h-3 w-3 text-slg-red border-gray-300 rounded-full"
-        @change="emit('update:modelValue', modelValue)"
+        @change="emit('update:modelValue',props.modelValue)"
       />
     </div>
     <div class="ml-3 text-sm">

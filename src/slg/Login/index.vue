@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { reactive } from "vue";
-import MxmButton from "@/components/src/Button";
-import MxmInput from "@/components/src/Input";
-import MxmCodeInput from "@/components/src/VertifyInput";
-import MxmCheckbox from "@/components/src/CheckBox";
+import MxmButton from "@/components/src/Button/index.vue";
+import MxmInput from "@/components/src/Input/index.vue";
+import MxmCodeInput from "@/components/src/VertifyInput/index.vue";
+import MxmCheckbox from "@/components/src/CheckBox/index.vue";
 interface Props {
   label: string;
 }
@@ -43,7 +43,7 @@ const doSubmit = () => {
           withIcon
           label="登录注册"
           @click="doSubmit"
-          class=" bg-slg-green text-white"
+          class="bg-slg-green text-white"
         ></mxm-button>
       </form>
     </div>

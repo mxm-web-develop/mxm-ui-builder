@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import SlgButton from "@/components/src/Button";
-import SlgFloatButton from "@/components/src/FloatButton";
+import SlgButton from "@/components/src/Button/index.vue";
+import SlgFloatButton from "@/components/src/FloatButton/index.vue";
 interface Props {
   bgImg?: string;
   short?: boolean;
@@ -33,7 +33,11 @@ const props = withDefaults(defineProps<Props>(), {
         <div
           class="img-holder z-0 top-0 left-0 w-full h-full absolute object-cover"
         >
-          <img draggable="false" :src="bgImg" class="object-cover h-full w-full z-0" />
+          <img
+            draggable="false"
+            :src="bgImg"
+            class="object-cover h-full w-full z-0"
+          />
         </div>
         <div class="z-10 w-16 absolute top-3 right-3" v-if="!props.short">
           <SlgFloatButton></SlgFloatButton>

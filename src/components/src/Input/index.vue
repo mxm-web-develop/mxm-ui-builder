@@ -7,7 +7,7 @@ interface Props {
   name?: string;
   placeholder?: string;
   withLabel?: boolean;
-  modelValue?:any
+  modelValue?: any;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -17,13 +17,13 @@ const props = withDefaults(defineProps<Props>(), {
   withLabel: false,
 });
 
-const emit =defineEmits(["update:modelValue"])
+const emit = defineEmits(["update:modelValue"]);
 
-const updateValue = (e)=>{
+const updateValue = (e) => {
   const target = e.target as HTMLInputElement;
   console.log(target.value);
-  emit('update:modelValue',target.value)
-}
+  emit("update:modelValue", target.value);
+};
 </script>
 <template>
   <div>

@@ -7,7 +7,7 @@ interface Props {
   name?: string;
   placeholder?: string;
   withLabel?: boolean;
-  modelValue?:any
+  modelValue?: any;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -16,13 +16,13 @@ const props = withDefaults(defineProps<Props>(), {
   placeholder: "placeholder",
   withLabel: false,
 });
-const emit = defineEmits(["codeBtnClicked","update:modelValue"]);
+const emit = defineEmits(["codeBtnClicked", "update:modelValue"]);
 const data = reactive({});
 const getCode = () => emit("codeBtnClicked");
-const updateInput = (e)=>{
+const updateInput = (e) => {
   const target = e.target as HTMLInputElement;
-  emit('update:modelValue',target.value)
-}
+  emit("update:modelValue", target.value);
+};
 </script>
 <template>
   <label

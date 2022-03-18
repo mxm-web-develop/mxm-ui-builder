@@ -3,25 +3,45 @@ import typescript from "rollup-plugin-typescript2";
 import vue from "rollup-plugin-vue";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import postcss from "rollup-plugin-postcss";
-import { terser } from "rollup-plugin-terser";
+// import { terser } from "rollup-plugin-terser";
 import postcssImport from "postcss-import";
 import tailwindcss from "tailwindcss";
 import image from "@rollup/plugin-image";
 import generatePackageJson from "rollup-plugin-generate-package-json";
+import commonjs from '@rollup/plugin-commonjs';
 import { resolve } from "path";
+import alias from '@rollup/plugin-alias';
+const appName ='mxm-slg-ui'
+const version = '1.0.0'
+const paths={
+    root:resolve(__dirname+'/src'),
+    input:resolve(__dirname,'/src/slg/index.ts'),
+    output:resolve(__dirname,appName+'.js'),
+    postcss:resolve(__dirname,'postcss.config.js'),
+    tailwindcss:resolve(__dirname,'tailwind.config.js')
+}
+
+
 function createEntry(options) {
   const config = {
-    input: ["./src/pages/index.ts"],
-    external: ["vue"],
+    input: ['./src/slg/index.ts'],
+    external: ["vue","@headlessui/vue","qrcode-vue3","ts-debounce"],
     output: {
-      file: resolve(__dirname, options.file),
+      file: appName+'/index.js',
       format: options.format,
       globals: {
         vue: "Vue",
+        "ts-debounce":'https://cdn.jsdelivr.net/npm/ts-debounce@4.0.0/dist/src/index.min.js'
       },
     },
     plugins: [
+      commonjs(),
       nodeResolve(),
+      alias({
+          entries:[
+              {find:'@',replacement:paths.root}
+          ]
+      }),
       typescript({
         tsconfigOverride: {
           compilerOptions: {
@@ -31,33 +51,33 @@ function createEntry(options) {
           exclude: [
             "node_modules",
             "src/stories",
-            "src/components",
+            "vite.config.ts",
+            // "src/components",
             "src/main.ts",
           ],
         },
       }),
-
       image(),
       vue(),
       postcss({
-        config: {
-          path: "./postcss.config.js",
-        },
+        minimize: true,
+        config: true,
         extensions: [".css"],
-        extract: resolve("mxmui/style.css"),
-        plugins: [postcssImport(), tailwindcss("./tailwind.config.js")],
+        extract: resolve(appName+"/style.css"),
+        plugins: [postcssImport(), tailwindcss(paths.tailwindcss)],
       }),
       generatePackageJson({
-        outputFolder: "mxmui",
+        outputFolder:appName,
         baseContents: (pkg) => ({
-          name: pkg.name + "-lib",
-          version: pkg.version,
-          license: pkg.license,
+          name:appName,
+          version: version,
+          license: "MIT",
           // module: "index.esm.js",
           main: "index.js",
           // umd: "index.js",
-          typings: "src/pages/index.d.ts",
+          typings: "src/slg/index.d.ts",
           author: "mxm",
+          dependencies: pkg.dependencies
         }),
       }),
       //terser(),
@@ -67,6 +87,6 @@ function createEntry(options) {
 }
 
 export default [
-  createEntry({ file: pkg.module, format: "es", name: pkg.name }),
-  // createEntry({ file: pkg.umd, format: "umd", name: pkg.name }),
+  createEntry({format: "es"}),
 ];
+ 

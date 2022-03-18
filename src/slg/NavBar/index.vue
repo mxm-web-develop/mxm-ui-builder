@@ -17,7 +17,7 @@
               : 'text-slg-green',
             'px-3 py-2 font-medium text-sm rounded',
           ]"
-          @mouseenter="() => hoverItem(tab,index)"
+          @mouseenter="() => hoverItem(tab, index)"
           @mouseleave="() => levelItem()"
         >
           {{ tab.name }}
@@ -34,8 +34,12 @@
                 class="w-52 absolute left-0 bg-slg-light-gray py-3 px-5"
                 v-if="tab.children"
               >
-                <nav v-for="k in tab.children" class="flex flex-col gap-y-2">
-                    {{k.name}}
+                <nav
+                  v-for="k in tab.children"
+                  class="flex py-1 flex-col"
+                  @click="() => itemOnclick(k, index)"
+                >
+                  {{ k.name }}
                 </nav>
               </div>
             </div>
@@ -48,55 +52,51 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { debounce } from "ts-debounce"
+import { debounce } from "ts-debounce";
 const emit = defineEmits(["activeChanged"]);
-const showChildren = ref(-1)
+const showChildren = ref(-1);
 interface ActiveItem {
-    name: string;
-    index: number;
+  name: string;
+  index: number;
 }
-interface Route{
-    name: string;
-    url?:string;
-    icon?:string;
-    children?: Array<Route>
+interface Route {
+  name: string;
+  url?: string;
+  icon?: string;
+  children?: Array<Route>;
 }
 interface Props {
-    routes:Route[]
+  routes: Route[];
 }
-const props = withDefaults(defineProps<Props>(),{})
-onMounted(()=>{
-    if(!props.routes) throw new Error('没有数据');
-    if(currnetActive.value){
-        currnetActive.value ={
-            name: props.routes[0].name,
-            index:0
-        }
-    }
-})
-
+const props = withDefaults(defineProps<Props>(), {});
+onMounted(() => {
+  if (!props.routes) throw new Error("没有数据");
+  if (currnetActive.value) {
+    currnetActive.value = {
+      name: props.routes[0].name,
+      index: 0,
+    };
+  }
+});
 
 const currnetActive = ref<ActiveItem | undefined>();
 
-const hoverItem = debounce((tab,index) => {
-  console.log('in');
-  console.log(tab,index);
-    tab.children ?
-        showChildren.value = index
-    :
-        ''
-},150)
-const levelItem = debounce(()=>{
-    console.log('leave');
-    showChildren.value = -1
-},150)
+const hoverItem = debounce((tab, index) => {
+  console.log("in");
+  console.log(tab, index);
+  tab.children ? (showChildren.value = index) : "";
+}, 150);
+const levelItem = debounce(() => {
+  console.log("leave");
+  showChildren.value = -1;
+}, 150);
 const itemOnclick = (tab: any, index: number) => {
   if (currnetActive.value?.name !== tab.name) {
-    currnetActive.value = {name:tab.name, index:index}
-    if(!tab.children){
-        emit("activeChanged", currnetActive.value);
-    }else{
-        return
+    currnetActive.value = { name: tab.name, index: index };
+    if (!tab.children) {
+      emit("activeChanged", currnetActive.value);
+    } else {
+      return;
     }
   }
   return;

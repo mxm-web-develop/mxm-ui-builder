@@ -1,3 +1,5 @@
+
+
 <script lang="ts" setup>
 import QRCodeVue3 from "qrcode-vue3";
 

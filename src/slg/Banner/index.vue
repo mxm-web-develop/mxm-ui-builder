@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import slgButton from "@/components/src/Button";
+import slgButton from "@/components/src/Button/index.vue";
 
 const props = withDefaults(
   defineProps<{
