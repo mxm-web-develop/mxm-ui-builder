@@ -1,0 +1,13 @@
+{
+  "name": "mxm-slg-ui",
+  "version": "1.0.7",
+  "license": "MIT",
+  "main": "index.js",
+  "typings": "slg/index.d.ts",
+  "author": "mxm",
+  "dependencies": {
+    "qrcode-vue3": "^1.4.17",
+    "ts-debounce": "^4.0.0",
+    "vue": "^3.2.16"
+  }
+}
