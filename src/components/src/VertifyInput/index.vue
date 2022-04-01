@@ -40,7 +40,6 @@ const updateInput = (e) => {
       @input="updateInput"
       class="pr-10 shadow-sm border focus:outline-none text-slg-dark border-slg-input-border focus:ring-1 focus:ring-slg-green focus:border-slg-green block w-full py-2 px-3 sm:text-sm rounded"
       :placeholder="placeholder"
-      value="adamwathan"
       aria-invalid="true"
       aria-describedby="email-error"
     />

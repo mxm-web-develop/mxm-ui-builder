@@ -1,5 +1,3 @@
-
-
 <script lang="ts" setup>
 import QRCodeVue3 from "qrcode-vue3";
 
@@ -12,8 +10,8 @@ interface ListItem {
   links: LinkItem[];
 }
 interface Props {
-  bgColor: string;
-  logo: string;
+  bgColor?: string;
+  logo?: string;
   qrValue?: string;
   qrSize?: string;
   listData?: ListItem[];

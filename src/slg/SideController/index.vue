@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 interface Props {
   mode: "user" | "shop";
-  dataList: any[] | {};
+  dataList: any[] | Record<string, unknown>;
 }
 const props = withDefaults(defineProps<Props>(), {});
 </script>

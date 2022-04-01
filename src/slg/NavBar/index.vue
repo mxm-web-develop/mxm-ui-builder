@@ -1,8 +1,8 @@
 <template>
   <div class="w-full h-full">
-    <div class="bg-slg-brigh w-full h-fullt">
+    <div class="bg-slg-brigh w-full h-full">
       <nav
-        class="flex items-center justify-center space-x-6 py-4"
+        class="flex border items-center justify-end space-x-6 py-4"
         aria-label="Tabs"
       >
         <a
@@ -36,6 +36,7 @@
               >
                 <nav
                   v-for="k in tab.children"
+                  :key="k.name"
                   class="flex py-1 flex-col"
                   @click="() => itemOnclick(k, index)"
                 >
@@ -54,18 +55,20 @@
 import { onMounted, ref } from "vue";
 import { debounce } from "ts-debounce";
 const emit = defineEmits(["activeChanged"]);
-const showChildren = ref(-1);
+const showChildren = ref<number>(-1);
 interface ActiveItem {
   name: string;
   index: number;
 }
 interface Route {
   name: string;
+  path?: string;
   url?: string;
   icon?: string;
   children?: Array<Route>;
 }
 interface Props {
+  class: string;
   routes: Route[];
 }
 const props = withDefaults(defineProps<Props>(), {});
@@ -84,13 +87,13 @@ const currnetActive = ref<ActiveItem | undefined>();
 const hoverItem = debounce((tab, index) => {
   console.log("in");
   console.log(tab, index);
-  tab.children ? (showChildren.value = index) : "";
+  tab.children ? (showChildren.value = index) : -1;
 }, 150);
 const levelItem = debounce(() => {
   console.log("leave");
   showChildren.value = -1;
 }, 150);
-const itemOnclick = (tab: any, index: number) => {
+const itemOnclick = (tab: any, index: any) => {
   if (currnetActive.value?.name !== tab.name) {
     currnetActive.value = { name: tab.name, index: index };
     if (!tab.children) {

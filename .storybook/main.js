@@ -47,7 +47,7 @@ module.exports = {
           compositionOnly: false,
           runtimeOnly: false,
         }),
-        eslintPlugin(),
+        // eslintPlugin(),
       ],
     });
   },

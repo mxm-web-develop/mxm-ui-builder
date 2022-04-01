@@ -8,39 +8,39 @@ import postcssImport from "postcss-import";
 import tailwindcss from "tailwindcss";
 import image from "@rollup/plugin-image";
 import generatePackageJson from "rollup-plugin-generate-package-json";
-import commonjs from '@rollup/plugin-commonjs';
+import commonjs from "@rollup/plugin-commonjs";
 import { resolve } from "path";
-import alias from '@rollup/plugin-alias';
-const appName ='mxm-slg-ui'
-const version = '1.0.0'
-const paths={
-    root:resolve(__dirname+'/src'),
-    input:resolve(__dirname,'/src/slg/index.ts'),
-    output:resolve(__dirname,appName+'.js'),
-    postcss:resolve(__dirname,'postcss.config.js'),
-    tailwindcss:resolve(__dirname,'tailwind.config.js')
-}
-
-
+import alias from "@rollup/plugin-alias";
+const appName = "mxm-slg-ui";
+const version = "1.0.5";
+const paths = {
+  root: resolve(__dirname + "/src"),
+  input: resolve(__dirname, "/src/slg/index.ts"),
+  output: resolve(__dirname, appName + ".js"),
+  postcss: resolve(__dirname, "postcss.config.js"),
+  tailwindcss: resolve(__dirname, "tailwind.config.js"),
+};
+const { dependencies } = pkg;
 function createEntry(options) {
   const config = {
-    input: ['./src/slg/index.ts'],
-    external: ["vue","@headlessui/vue","qrcode-vue3","ts-debounce"],
+    input: ["./src/slg/index.ts"],
+    external: [
+      "vue",
+      "ts-debounce",
+      "@headlessui/vue",
+      "@heroicons/vue",
+      "qrcode-vue3",
+    ],
     output: {
-      file: appName+'/index.js',
+      file: appName + "/index.js",
       format: options.format,
-      globals: {
-        vue: "Vue",
-        "ts-debounce":'https://cdn.jsdelivr.net/npm/ts-debounce@4.0.0/dist/src/index.min.js'
-      },
+      name: "appName",
     },
     plugins: [
       commonjs(),
       nodeResolve(),
       alias({
-          entries:[
-              {find:'@',replacement:paths.root}
-          ]
+        entries: [{ find: "@", replacement: paths.root }],
       }),
       typescript({
         tsconfigOverride: {
@@ -63,21 +63,21 @@ function createEntry(options) {
         minimize: true,
         config: true,
         extensions: [".css"],
-        extract: resolve(appName+"/style.css"),
+        extract: resolve(appName + "/style.css"),
         plugins: [postcssImport(), tailwindcss(paths.tailwindcss)],
       }),
       generatePackageJson({
-        outputFolder:appName,
+        outputFolder: appName,
         baseContents: (pkg) => ({
-          name:appName,
+          name: appName,
           version: version,
           license: "MIT",
           // module: "index.esm.js",
           main: "index.js",
           // umd: "index.js",
-          typings: "src/slg/index.d.ts",
+          typings: "slg/index.d.ts",
           author: "mxm",
-          dependencies: pkg.dependencies
+          dependencies: dependencies,
         }),
       }),
       //terser(),
@@ -86,7 +86,4 @@ function createEntry(options) {
   return config;
 }
 
-export default [
-  createEntry({format: "es"}),
-];
- 
+export default [createEntry({ format: "es" })];
