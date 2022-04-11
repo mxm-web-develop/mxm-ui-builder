@@ -21,8 +21,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write",
     "build:slg": "yarn rollup -c slg.rollup.config.ts -w",
-    "build:mxm": "yarn rollup -c mxm.rollup.config.ts -w",
-    "build:c": "yarn rollup -c"
+    "build:mxm": "yarn rollup -c mxm.rollup.config.ts -w"
   },
   "dependencies": {
     "@headlessui/vue": "^1.5.0",

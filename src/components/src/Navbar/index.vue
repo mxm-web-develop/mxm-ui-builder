@@ -61,6 +61,7 @@ const showChildren = ref<number>(-1);
 interface ActiveItem {
   name: string;
   index: number;
+  path?: string;
 }
 interface Route {
   name: string;
@@ -93,6 +94,7 @@ onMounted(() => {
     currnetActive.value = {
       name: props.routes[0].name,
       index: 0,
+      path:''
     };
   }
 });
@@ -107,7 +109,7 @@ const levelItem = debounce(() => {
 }, 150);
 const itemOnclick = (tab: any, index: any) => {
   if (currnetActive.value?.name !== tab.name) {
-    currnetActive.value = { name: tab.name, index: index };
+    currnetActive.value = { name: tab.name, index: index, path:tab.path?tab.path:'' };
     if (!tab.children) {
       emit("activeChanged", currnetActive.value);
     } else {
