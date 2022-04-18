@@ -17,6 +17,10 @@ declare const _default: import("vue").DefineComponent<{
         type: ArrayConstructor;
         required: true;
     };
+    defualtRoute: {
+        type: null;
+        required: true;
+    };
 }, (_ctx: any, _cache: any) => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
     [key: string]: any;
 }>, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "activeChanged"[], "activeChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
@@ -24,10 +28,12 @@ declare const _default: import("vue").DefineComponent<{
     alignItems?: unknown;
     class?: unknown;
     routes?: unknown;
+    defualtRoute?: unknown;
 } & {
     hoverEffect: string;
     alignItems: string;
     routes: unknown[];
+    defualtRoute: any;
 } & {
     class?: string | undefined;
 }> & {

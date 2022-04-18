@@ -11,7 +11,7 @@ import generatePackageJson from "rollup-plugin-generate-package-json";
 import commonjs from "@rollup/plugin-commonjs";
 import { resolve } from "path";
 import alias from "@rollup/plugin-alias";
-const appName = "mxm-ui";
+const appName = "@mxmweb/mxm-ui";
 const version = "1.0.5";
 const paths = {
   root: resolve(__dirname + "/src/"),
