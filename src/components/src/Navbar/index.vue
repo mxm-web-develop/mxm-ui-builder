@@ -77,6 +77,7 @@ interface Props {
   alignItems?: "center" | "left" | "right" ,
   class?: string;
   routes: Route[];
+  defualtRoute
 }
 const props = withDefaults(defineProps<Props>(), {
   hoverEffect: "text",
