@@ -10,9 +10,9 @@ export default {
       options: ["text", "box"],
       default: "text",
     },
-    alignItems:{
+    alignItems: {
       control: "radio",
-      options: ["center", "right","left"],
+      options: ["center", "right", "left"],
       default: "right",
     },
     class: { control: "text" },
@@ -36,7 +36,15 @@ Primary.args = {
     { path: "/chain33", component: "Chain33Home", name: "Chain33" },
     { path: "/baas", component: "Baas", name: "Baas33" },
     { path: "/collaborate", component: "Collaborate", name: "合作生态" },
-    { path: "/news", component: "News", name: "新闻动态" },
+    {
+      path: "/news",
+      component: "News",
+      name: "新闻动态",
+      chilren: [
+        { path: "/baas", component: "Baas", name: "Baas33" },
+        { path: "/collaborate", component: "Collaborate", name: "合作生态" },
+      ],
+    },
     { path: "/class", component: "Classes", name: "公开课" },
     { path: "/about", component: "About", name: "关于我们" },
   ],

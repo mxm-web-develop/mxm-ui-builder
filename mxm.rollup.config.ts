@@ -11,7 +11,7 @@ import generatePackageJson from "rollup-plugin-generate-package-json";
 import commonjs from "@rollup/plugin-commonjs";
 import { resolve } from "path";
 import alias from "@rollup/plugin-alias";
-const appName = "@mxmweb/mxm-ui";
+const appName = "@mxmweb/vue3-ui";
 const version = "1.0.5";
 const paths = {
   root: resolve(__dirname + "/src/"),
@@ -23,7 +23,7 @@ const paths = {
 const { dependencies } = pkg;
 function createEntry(options) {
   const config = {
-    input: ['./src/components/index.ts'],
+    input: ["./src/components/index.ts"],
     external: [
       "vue",
       "ts-debounce",
@@ -66,7 +66,7 @@ function createEntry(options) {
         minimize: true,
         config: true,
         extensions: [".css"],
-        extract: resolve(appName+'/style.css'),
+        extract: resolve(appName + "/style.css"),
         plugins: [postcssImport(), tailwindcss(paths.tailwindcss)],
       }),
       generatePackageJson({

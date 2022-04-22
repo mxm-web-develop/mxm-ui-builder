@@ -17,7 +17,7 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "sourceMap": true,
- 
+
     "baseUrl": "./",
     "types": ["@intlify/vite-plugin-vue-i18n/client", "vite/client"],
 
